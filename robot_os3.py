@@ -1,8 +1,8 @@
 # =========================
-# ROBO_ES v3 — MIX CORE
+# ROBO_OS v3 — MIX CORE
 # =========================
 
-__robo__ = "robo_es__v3"
+__robo__ = "robo_OS__v3"
 
 import time, os, tempfile
 import ollama
