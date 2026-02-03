@@ -1,6 +1,143 @@
-# hra_miku_robot
-🤖 ROBOT_OS v5.0 — Human Robot Artem (HRA)Human Robot Artem (HRA) is an advanced operating system for a humanoid robot powered by NVIDIA Jetson Nano. This project integrates active balancing, computer vision, AI-driven cognition, and a multilingual synthesis engine into a unified robotic framework.🌟 Key Features🧠 Neural Brain: Powered by local LLM (Ollama Phi-3) for context-aware, intelligent dialogue.⚖️ Active Stability: Real-time PID control loop using MPU6050 data to manage 4 servos (Hips & Knees).👁️ Realsense Vision: High-speed depth and color processing via Intel RealSense D435.🗣️ Polyglot Miku: Automatic language detection (RU/EN/JA) with voice synthesis via Hatsune Miku TTS API.👂 Coqui STT Hearing: Local speech-to-text processing for low-latency voice command execution.🔒 Secure Control: Encrypted TCP server using Fernet (AES-128) for remote operation.🛡️ Reflex System: Immediate "Pain" reflex processing via GPIO touch sensors.🏗 System ArchitectureThe OS utilizes a multi-threaded architecture to ensure critical tasks like balancing are never interrupted by heavy AI computations:Physics Thread (50Hz): Constant IMU polling and servo correction.TCP Thread: Listens for incoming encrypted remote commands.Main Loop: Manages the vision pipeline, voice recognition, and Ollama reasoning.🔌 Hardware MapComponentInterfaceDescriptionMPU6050I2C (SDA1/SCL1)Vestibular system (Gyro/Accel)L/R HIPPin 24 / 32Hip joint servosL/R KNEEPin 26 / 33Knee joint servosTouch SensorPin 7Pain/Impact reflexCameraUSB 3.0Intel RealSense D435🚀 Quick Start1. Install DependenciesEnsure your Jetson Nano has the following libraries:Bashpip install mpu6050-raspberrypi pyrealsense2 sounddevice soundfile cryptography ollama gradio_client opencv-python
-2. Setup OllamaBashcurl -fsSL https://ollama.com/install.sh | sh
+#hra_miku_robot
+
+ROBOT_OS v5.0 — Human Robot Artem (HRA)
+
+Human Robot Artem (HRA) is an advanced operating system for a humanoid robot powered by NVIDIA Jetson Nano.
+It unifies real-time balance control, computer vision, local AI cognition, and multilingual voice interaction into a single robotic framework.
+
+🌟 Key Features
+🧠 Neural Brain
+
+Local LLM powered by Ollama (Phi-3)
+
+Context-aware intelligent dialogue
+
+Fully offline AI reasoning
+
+⚖️ Active Stability
+
+Real-time PID control loop
+
+IMU-based balancing using MPU6050
+
+Control of 4 servos (hips & knees)
+
+👁️ RealSense Vision
+
+Intel RealSense D435
+
+High-speed RGB + depth processing
+
+Vision pipeline optimized for Jetson
+
+🗣️ Polyglot Miku Voice
+
+Automatic language detection (RU / EN / JA)
+
+Voice synthesis via Hatsune Miku TTS API
+
+Dynamic language switching
+
+👂 Coqui STT Hearing
+
+Local speech-to-text processing
+
+Low-latency voice command recognition
+
+🔒 Secure Control
+
+Encrypted TCP control server
+
+Fernet (AES-128) encryption
+
+Secure remote operation
+
+🛡️ Reflex System
+
+GPIO-based touch sensors
+
+Immediate “pain” / impact reflex
+
+Highest execution priority
+
+🏗 System Architecture
+
+ROBOT_OS uses a multi-threaded architecture to ensure critical processes (like balance) are never blocked by heavy AI workloads.
+
+🔄 Threads Overview
+
+Physics Thread (50 Hz)
+
+IMU polling
+
+PID balance correction
+
+Servo control
+
+TCP Thread
+
+Encrypted command listener
+
+Remote control interface
+
+Main Loop
+
+Vision pipeline
+
+Speech recognition
+
+Ollama reasoning
+
+Voice synthesis
+
+🔌 Hardware Map
+Component	Interface	Description
+MPU6050	I2C (SDA1 / SCL1)	Gyro + accelerometer (balance)
+Left Hip Servo	Pin 24	Hip joint
+Right Hip Servo	Pin 32	Hip joint
+Left Knee Servo	Pin 26	Knee joint
+Right Knee Servo	Pin 33	Knee joint
+Touch Sensor	Pin 7	Pain / impact reflex
+Camera	USB 3.0	Intel RealSense D435
+🚀 Quick Start
+1️⃣ Install Dependencies
+pip install mpu6050-raspberrypi pyrealsense2 sounddevice soundfile cryptography ollama gradio_client opencv-python
+
+2️⃣ Setup Ollama
+curl -fsSL https://ollama.com/install.sh | sh
 ollama pull phi3
-3. Run the OSClone the repository and execute the main controller:Bashpython3 main.py
-📝 Voice Commands (Examples)CommandAction"Иди вперед" (Go forward)Robot initiates walking gait"Встань ровно" (Stand straight)Resets servos to 90° and engages PID balance"How are you?"Switches to English TTS and provides AI status"何時ですか？"Switches to Japanese TTS and provides time📜 LicenseThis project is licensed under the MIT License - feel free to use it for your own robotic builds!Developer: [Your Name/Handle]Project Status: Active Development v5.0
+
+3️⃣ Run the OS
+git clone https://github.com/yourname/hra_miku_robot.git
+cd hra_miku_robot
+python3 main.py
+
+📝 Voice Commands (Examples)
+Command	Action
+"Go forward"	Initiates walking gait
+"Stand straight"	Resets servos to 90° and engages PID balance
+"How are you?"	Switches to English TTS and replies with AI status
+"何時ですか？"	Switches to Japanese TTS and reports the time
+📜 License
+
+This project is licensed under the MIT License — free to use, modify, and expand.
+
+👨‍💻 Developer
+
+Artem — HRA Project
+
+🚧 Project Status
+
+Active Development — v5.0
+
+💡 Possible Next Upgrades
+
+📊 Architecture diagrams (Mermaid)
+
+🎥 Balance & walking demo GIFs
+
+🧩 Modular plugin system
+
+🧠 Long-term memory for LLM
+
+🤖 ROS2 integration bridge
