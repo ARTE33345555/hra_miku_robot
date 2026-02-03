@@ -1,6 +1,6 @@
 #hra_miku_robot
 
-ROBOT_OS v5.0 — Human Robot Artem (HRA)
+ROBOT_OS v5.1 — Human Robot Artem (HRA)
 
 Human Robot Artem (HRA) is an advanced operating system for a humanoid robot powered by NVIDIA Jetson Nano.
 It unifies real-time balance control, computer vision, local AI cognition, and multilingual voice interaction into a single robotic framework.
