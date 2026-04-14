@@ -108,7 +108,7 @@ curl -fsSL https://ollama.com/install.sh | sh
 ollama pull phi3
 
 3️⃣ Run the OS
-git clone https://github.com/yourname/hra_miku_robot.git
+https://github.com/ARTE33345555/hra_miku_robot/blob/main/README.md
 cd hra_miku_robot
 python3 main.py
 
