@@ -134,8 +134,6 @@ Active Development — v5.0
 
 📊 Architecture diagrams (Mermaid)
 
-🎥 Balance & walking demo GIFs
-
 🧩 Modular plugin system
 
 🧠 Long-term memory for LLM
