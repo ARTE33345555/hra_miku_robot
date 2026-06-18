@@ -17,7 +17,7 @@ from mpu6050 import mpu6050
 from gradio_client import Client
 
 # ==============================================================================
-# 1. СЕКРЕТИ, ПЕРИФЕРІЯ ТА ІНІЦІАЛІЗАЦІЯ
+# 1. СЕКРЕТИ, ПЕРИФЕРИЯ ТА ІНІЦІАЛІЗАЦІЯ
 # ==============================================================================
 KEY = b'PASTE_YOUR_SECRET_KEY_HERE'
 fernet = Fernet(KEY)
@@ -95,14 +95,14 @@ def stability_thread():
 # 3. МОВНІ ТЕХНОЛОГІЇ (STT / TTS)
 # ==============================================================================
 def get_voice(lang):
-    # Додано український голос за замовчуванням (через Ostap або Polina)
+    """Повертає відповідний ідентифікатор голосу."""
     voices = {
-        "UA": "uk-UA-OstapNeural-Male", 
+        "UA": "uk-UA-PolinaNeural-Female", 
         "RU": "ru-RU-SvetlanaNeural-Female",
         "EN": "en-US-AnaNeural-Female",
         "JA": "ja-JP-NanamiNeural-Female"
     }
-    return voices.get(lang, "uk-UA-OstapNeural-Male")
+    return voices.get(lang, "uk-UA-PolinaNeural-Female")
 
 def speak(text):
     """Синтез мовлення через віддалений API Miku TTS."""
@@ -214,7 +214,7 @@ def hibernate():
     os.system("systemctl suspend")
 
 def go_to_dock():
-    speak("[UA] Заряд майже вичерпано. Йду на док-станцію.")
+    speak("[UA] Заряд майже вичерпано. Йду на док-станцию.")
     for _ in range(20):
         set_legs(105, 15)
         time.sleep(0.2)
