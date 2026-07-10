@@ -22,7 +22,7 @@ from gradio_client import Client
 KEY = b'PASTE_YOUR_SECRET_KEY_HERE'
 fernet = Fernet(KEY)
 HOST, PORT = "0.0.0.0", 5050
-ROBOT_NAME = "артем"
+ROBOT_NAME = "Miku"
 
 # Налаштування GPIO
 GPIO.setmode(GPIO.BOARD)
